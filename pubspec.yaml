@@ -1,0 +1,57 @@
+name: naluki
+description: "Naluki - Découvrez, réservez, vivez local."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Icônes
+  cupertino_icons: ^1.0.8
+
+  # Gestion d'état
+  flutter_riverpod: ^2.5.1
+
+  # Navigation centralisée
+  go_router: ^14.2.0
+
+  # Responsive design (aucun pixel fixe)
+  flutter_screenutil: ^5.9.3
+
+  # Typographie (police de la maquette)
+  google_fonts: ^6.2.1
+
+  # Icônes vectorielles
+  flutter_svg: ^2.0.10+1
+
+  # Images réseau avec cache + placeholder (prêt pour les phases suivantes)
+  cached_network_image: ^3.4.1
+
+  # Utilitaires immuables pour les modèles (fake data des phases suivantes)
+  equatable: ^2.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Qualité de code : le projet doit compiler sans warning
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/animations/
+
+  # Les fonts seront déclarées ici dès qu'elles seront ajoutées dans assets/fonts
+  # (étape "Thème & Design System")
+  # fonts:
+  #   - family: Poppins
+  #     fonts:
+  #       - asset: assets/fonts/Poppins-Regular.ttf

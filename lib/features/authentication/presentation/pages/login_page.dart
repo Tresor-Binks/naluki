@@ -68,9 +68,9 @@ class _LoginPageState extends State<LoginPage> {
 
               Text('Email ou téléphone', style: AppTextStyles.label),
               SizedBox(height: AppSpacing.xs),
-              TextField(
+              const TextField(
                 keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(hintText: 'Ex: 06 000 00 00'),
+                decoration: InputDecoration(hintText: 'Ex: 06 000 00 00'),
               ),
               SizedBox(height: AppSpacing.lg),
 

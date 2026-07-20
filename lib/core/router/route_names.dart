@@ -77,8 +77,29 @@ abstract final class RouteNames {
   static const String favoritesPath = '/favorites';
 
   // ---------------------------------------------------------------------
-  // Divers
+  // Espace Professionnel (démo — sans authentification/rôle pour l'instant)
   // ---------------------------------------------------------------------
-  static const String designSystem = 'design-system';
-  static const String designSystemPath = '/design-system';
+  static const String proDashboard = 'pro-dashboard';
+  static const String proDashboardPath = '/professional/dashboard';
+
+  static const String proListing = 'pro-listing';
+  static const String proListingPath = '/professional/listing';
+
+  static const String proBookings = 'pro-bookings';
+  static const String proBookingsPath = '/professional/bookings';
+
+  static const String proPromotions = 'pro-promotions';
+  static const String proPromotionsPath = '/professional/promotions';
+
+  static const String proReviews = 'pro-reviews';
+  static const String proReviewsPath = '/professional/reviews';
+
+  // ---------------------------------------------------------------------
+  // Back-office Admin (démo)
+  // ---------------------------------------------------------------------
+  static const String adminModeration = 'admin-moderation';
+  static const String adminModerationPath = '/admin/moderation';
+
+  static const String adminStats = 'admin-stats';
+  static const String adminStatsPath = '/admin/stats';
 }

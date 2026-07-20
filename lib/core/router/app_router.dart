@@ -1,12 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../widgets/design_system_preview_page.dart';
+import '../constants/app_animations.dart';
 import 'main_shell.dart';
 import 'route_names.dart';
 
 import '../../features/authentication/presentation/pages/login_page.dart';
 import '../../features/authentication/presentation/pages/signup_page.dart';
+import '../../features/admin/presentation/pages/admin_moderation_page.dart';
+import '../../features/admin/presentation/pages/admin_stats_page.dart';
 import '../../features/booking/presentation/pages/booking_page.dart';
 import '../../features/booking/presentation/pages/bookings_list_page.dart';
 import '../../features/events/presentation/pages/events_page.dart';
@@ -21,6 +22,11 @@ import '../../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../../features/onboarding/presentation/pages/splash_page.dart';
 import '../../features/payment/presentation/pages/payment_page.dart';
 import '../../features/place/presentation/pages/place_detail_page.dart';
+import '../../features/professional/presentation/pages/pro_bookings_page.dart';
+import '../../features/professional/presentation/pages/pro_dashboard_page.dart';
+import '../../features/professional/presentation/pages/pro_listing_page.dart';
+import '../../features/professional/presentation/pages/pro_promotions_page.dart';
+import '../../features/professional/presentation/pages/pro_reviews_page.dart';
 import '../../features/profile/presentation/pages/profile_page.dart';
 import '../../features/video/presentation/pages/video_page.dart';
 
@@ -136,7 +142,13 @@ abstract final class AppRouter {
       GoRoute(
         path: RouteNames.videoPath,
         name: RouteNames.video,
-        builder: (context, state) => VideoPage(placeId: state.pathParameters['placeId']!),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: VideoPage(placeId: state.pathParameters['placeId']!),
+          transitionDuration: AppAnimations.pageTransitionDuration,
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              AppAnimations.fade(animation: animation, child: child),
+        ),
       ),
 
       // -------------------------------------------------------------
@@ -155,7 +167,13 @@ abstract final class AppRouter {
       GoRoute(
         path: RouteNames.filtersPath,
         name: RouteNames.filters,
-        builder: (context, state) => const FiltersPage(),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const FiltersPage(),
+          transitionDuration: AppAnimations.pageTransitionDuration,
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              AppAnimations.slideUp(animation: animation, child: child),
+        ),
       ),
       GoRoute(
         path: RouteNames.favoritesPath,
@@ -164,12 +182,46 @@ abstract final class AppRouter {
       ),
 
       // -------------------------------------------------------------
-      // Debug / Design System
+      // Espace Professionnel (démo)
       // -------------------------------------------------------------
       GoRoute(
-        path: RouteNames.designSystemPath,
-        name: RouteNames.designSystem,
-        builder: (context, state) => const DesignSystemPreviewPage(),
+        path: RouteNames.proDashboardPath,
+        name: RouteNames.proDashboard,
+        builder: (context, state) => const ProDashboardPage(),
+      ),
+      GoRoute(
+        path: RouteNames.proListingPath,
+        name: RouteNames.proListing,
+        builder: (context, state) => const ProListingPage(),
+      ),
+      GoRoute(
+        path: RouteNames.proBookingsPath,
+        name: RouteNames.proBookings,
+        builder: (context, state) => const ProBookingsPage(),
+      ),
+      GoRoute(
+        path: RouteNames.proPromotionsPath,
+        name: RouteNames.proPromotions,
+        builder: (context, state) => const ProPromotionsPage(),
+      ),
+      GoRoute(
+        path: RouteNames.proReviewsPath,
+        name: RouteNames.proReviews,
+        builder: (context, state) => const ProReviewsPage(),
+      ),
+
+      // -------------------------------------------------------------
+      // Back-office Admin (démo)
+      // -------------------------------------------------------------
+      GoRoute(
+        path: RouteNames.adminModerationPath,
+        name: RouteNames.adminModeration,
+        builder: (context, state) => const AdminModerationPage(),
+      ),
+      GoRoute(
+        path: RouteNames.adminStatsPath,
+        name: RouteNames.adminStats,
+        builder: (context, state) => const AdminStatsPage(),
       ),
     ],
   );

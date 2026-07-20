@@ -41,6 +41,20 @@ dev_dependencies:
   # Qualité de code : le projet doit compiler sans warning
   flutter_lints: ^4.0.0
 
+  # Générateur d'icônes d'application
+  flutter_launcher_icons: ^0.14.2
+
+# Configuration des icônes de l'application
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  web:
+    generate: true
+    image_path: "assets/images/logo.png"
+  image_path: "assets/images/logo.png"
+  adaptive_icon_background: "#FFFFFF" # Vous pouvez changer cette couleur hexadécimale
+  adaptive_icon_foreground: "assets/images/logo.png"
+
 flutter:
   uses-material-design: true
 

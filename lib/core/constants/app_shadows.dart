@@ -9,28 +9,28 @@ import '../colors/app_colors.dart';
 abstract final class AppShadows {
   /// Ombre très légère (chips, petits éléments).
   static List<BoxShadow> get soft => [
-        BoxShadow(
+        const BoxShadow(
           color: AppColors.shadow,
           blurRadius: 6,
-          offset: const Offset(0, 2),
+          offset: Offset(0, 2),
         ),
       ];
 
   /// Ombre standard (cartes restaurants/événements).
   static List<BoxShadow> get card => [
-        BoxShadow(
+        const BoxShadow(
           color: AppColors.shadow,
           blurRadius: 12,
-          offset: const Offset(0, 4),
+          offset: Offset(0, 4),
         ),
       ];
 
   /// Ombre marquée (bottom navigation, bottom sheets, boutons flottants).
   static List<BoxShadow> get elevated => [
-        BoxShadow(
+        const BoxShadow(
           color: AppColors.shadow,
           blurRadius: 20,
-          offset: const Offset(0, 8),
+          offset: Offset(0, 8),
         ),
       ];
 }

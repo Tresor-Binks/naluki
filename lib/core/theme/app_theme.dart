@@ -86,7 +86,7 @@ abstract final class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.surfaceMuted,
-        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         hintStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textTertiary),
         border: OutlineInputBorder(
           borderRadius: AppRadius.inputRadius,
@@ -139,6 +139,18 @@ abstract final class AppTheme {
       ),
 
       splashFactory: InkRipple.splashFactory,
+
+      // Transitions de page par défaut : glissement latéral (cohérent avec
+      // la maquette) sur Android ET iOS. Les écrans qui ont besoin d'une
+      // transition différente (fondu, glissement vers le haut) la
+      // définissent explicitement dans `app_router.dart` via une
+      // `CustomTransitionPage` + `AppAnimations`.
+      pageTransitionsTheme: const PageTransitionsTheme(
+        builders: {
+          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        },
+      ),
     );
   }
 
